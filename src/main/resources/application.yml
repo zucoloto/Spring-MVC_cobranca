@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: contas-receber
+logging:
+  level:
+    root: WARN
+    br.com.zuco: DEBUG
