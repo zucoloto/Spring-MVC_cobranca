@@ -93,8 +93,7 @@
                         <div class="col-auto">
                             <select class="form-select" id="status" name="status">
                                 <option selected disabled value="">Selecione um item...</option>
-                                <option value="PENDENTE">Pendente</option>
-                                <option value="RECEBIDO">Recebido</option>
+                                <option th:each="status : ${todosStatusTitulo}" th:value="${status}" th:text="${status.descricao}"/>
                             </select>
                         </div>
                     </div>

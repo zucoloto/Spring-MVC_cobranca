@@ -2,6 +2,7 @@ package br.com.zuco.model;
 
 public enum StatusTitulo {
 
+    CANCELADO("Cancelado"),
     PENDENTE("Pendente"),
     RECEBIDO("Recebido");
 
