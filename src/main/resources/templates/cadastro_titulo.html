@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cadastro de Título</title>
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <nav class="navbar bg-body-tertiary">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="/images/favicon.png" alt="Logo" width="30" height="24">
+                <span>Contas a Receber</span>
+            </a>
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/titulo/cadastrar">Cadastrar Título</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Teste1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Teste2</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <span class="panel-title">Novo título</span>
+            </div>
+
+            <div class="card-body">
+                <form>
+                    <div class="row mb-3">
+                        <div class="col-sm-2 col-md-3  d-flex justify-content-sm-start justify-content-md-end">
+                            <label class="col-form-label" for="descricao" >Descrição</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="descricao" >
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-2 col-md-3  d-flex justify-content-sm-start justify-content-md-end">
+                            <label class="col-form-label" for="dataVencimento" >Data de vencimento</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" class="form-control" id="dataVencimento" >
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-2 col-md-3   d-flex justify-content-sm-start justify-content-md-end">
+                            <label class="col-form-label" for="valor" >Valor</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" class="form-control" id="valor" >
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-2 col-md-3   d-flex justify-content-sm-start justify-content-md-end">
+                            <label class="col-form-label" for="status" >Status</label>
+                        </div>
+                        <div class="col-auto">
+                            <select class="form-select" id="status" aria-label="Default select example">
+                                <option selected disabled value="">Selecione um item...</option>
+                                <option value="1">Pendente</option>
+                                <option value="2">Recebido</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="offset-md-3 col-md-9 ">
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="card-footer text-center">
+                <span>Direitos autorais ©2025 Zuco, Inc. Todos os direitos reservados.</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
