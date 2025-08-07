@@ -20,6 +20,11 @@ public class TituloController {
     @Autowired
     private TituloRepository tituloRepository;
 
+    @RequestMapping
+    public String listar() {
+        return "/lista_titulo";
+    }
+
     @RequestMapping("/novo")
     public String novo() {
         return "/cadastro_titulo";
