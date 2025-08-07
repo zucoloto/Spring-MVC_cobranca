@@ -33,7 +33,7 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/titulo/cadastrar">Cadastrar Título</a>
+                        <a class="nav-link" href="/titulo/novo">Cadastrar Título</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Teste1</a>
@@ -53,13 +53,13 @@
             </div>
 
             <div class="card-body">
-                <form>
+                <form method="POST" action="/titulo">
                     <div class="row mb-3">
                         <div class="col-sm-2 col-md-3  d-flex justify-content-sm-start justify-content-md-end">
                             <label class="col-form-label" for="descricao" >Descrição</label>
                         </div>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="descricao" >
+                            <input type="text" class="form-control" id="descricao" name="descricao">
                         </div>
                     </div>
 
@@ -68,7 +68,7 @@
                             <label class="col-form-label" for="dataVencimento" >Data de vencimento</label>
                         </div>
                         <div class="col-auto">
-                            <input type="text" class="form-control" id="dataVencimento" >
+                            <input type="text" class="form-control" id="dataVencimento" name="dataVencimento">
                         </div>
                     </div>
 
@@ -77,7 +77,7 @@
                             <label class="col-form-label" for="valor" >Valor</label>
                         </div>
                         <div class="col-auto">
-                            <input type="text" class="form-control" id="valor" >
+                            <input type="text" class="form-control" id="valor" name="valor">
                         </div>
                     </div>
 
@@ -86,10 +86,10 @@
                             <label class="col-form-label" for="status" >Status</label>
                         </div>
                         <div class="col-auto">
-                            <select class="form-select" id="status" aria-label="Default select example">
+                            <select class="form-select" id="status" name="status">
                                 <option selected disabled value="">Selecione um item...</option>
-                                <option value="1">Pendente</option>
-                                <option value="2">Recebido</option>
+                                <option value="PENDENTE">Pendente</option>
+                                <option value="RECEBIDO">Recebido</option>
                             </select>
                         </div>
                     </div>

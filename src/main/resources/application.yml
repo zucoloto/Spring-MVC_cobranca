@@ -3,5 +3,5 @@ spring:
     name: contas-receber
 logging:
   level:
-    root: WARN
+    root: INFO
     br.com.zuco: DEBUG
