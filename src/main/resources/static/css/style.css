@@ -3,3 +3,7 @@
 
 /* Font Awesome free-6.7.2-web */
 @import url("fontawesome/css/all.css");
+
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("google_fonts.css");

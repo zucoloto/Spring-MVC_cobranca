@@ -1,51 +1,28 @@
-<!DOCTYPE html>
-<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout/layout}">
 
-	<title>Contas a Receber</title>
-
-	<link href="/css/bootstrap.min.css" rel="stylesheet" />
-</head>
-
-<body>
-
-	<nav class="navbar navbar-expand-lg bg-body-tertiary">
-		<div class="container">
-			<a class="navbar-brand" href="/">
-				<img src="/images/favicon.png" alt="Logo" width="30" height="24">
-				<span>Contas a Receber</span>
-			</a>
-
-			<button class="navbar-toggler"
-					type="button"
-					data-bs-toggle="collapse"
-					data-bs-target="#navbarNav"
-					aria-controls="navbarNav"
-					aria-expanded="false"
-					aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav">
-					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="/">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/titulo/novo">Cadastrar Título</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/titulo">Listar Título</a>
-					</li>
-				</ul>
+<div class="row row-cols-1 row-cols-md-4 g-4  d-flex justify-content-center" layout:fragment="content">
+	<div class="col">
+		<a class="text-decoration-none" href="/titulo/novo">
+			<div class="card text-center">
+				<span class="material-icons md-128 blue">add_box</span>
+				<div class="card-body">
+					<h5 class="card-title">Cadastrar</h5>
+				</div>
 			</div>
-		</div>
-	</nav>
-
-	<script src="/js/jquery-3.7.1.min.js"></script>
-	<script src="/js/bootstrap.bundle.min.js"></script>
-</body>
+		</a>
+	</div>
+	<div class="col">
+		<a class="text-decoration-none" href="/titulo">
+			<div class="card text-center">
+				<span class="material-icons md-128 orange">list_alt</span>
+				<div class="card-body">
+					<h5 class="card-title">Listar</h5>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
 
 </html>

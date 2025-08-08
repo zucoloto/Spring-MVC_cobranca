@@ -5,6 +5,7 @@ import br.com.zuco.model.Titulo;
 import br.com.zuco.repository.TituloRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,7 +21,7 @@ public class TituloController {
     @Autowired
     private TituloRepository tituloRepository;
 
-    @RequestMapping
+    @GetMapping
     public String listar() {
         return "/lista_titulo";
     }

@@ -12,8 +12,18 @@ spring:
       properties:
         hibernate:
       show-sql: false
-      open-in-view: false
-  logging:
-    level:
-      root: INFO
-      br.com.zuco: DEBUG
+    open-in-view: false
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false # Disable caching for development
+    mode: HTML
+    encoding: UTF-8
+  messages:
+    basename: templates/i18n/messages_pt_BR
+    encoding: UTF-8
+
+logging:
+  level: # Log Level: ERROR, WARN, INFO, DEBUG, or TRACE
+    root: WARN
+    br.com.zuco: DEBUG
