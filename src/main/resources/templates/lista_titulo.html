@@ -27,8 +27,8 @@
                     <td class="text-center" th:text="${{titulo.dataVencimento}}"></td>
                     <td class="text-end" th:text="|R$ ${{titulo.valor}}|"></td>
                     <td class="text-center">
-                        <span class="label" th:text="${titulo.status.descricao}"
-                            th:classappend="${titulo.pendente ? 'label-danger' : 'label-success'}">
+                        <span class="fw-bold" th:text="${titulo.status.descricao}"
+                            th:classappend="${titulo.pendente ? 'text-danger' : 'text-success'}">
                         </span>
                     </td>
                     <td class="text-center">
