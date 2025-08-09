@@ -3,26 +3,41 @@
       layout:decorate="~{layout/layout}">
 
 <div class="card" layout:fragment="content">
-    <div class="card-header">
-        <span class="panel-title">Listar títulos</span>
+    <div class="card-header  d-flex">
+        <span class="h4 mt-2  me-auto">Listar títulos</span>
+        <a class="btn btn-link text-decoration-none mt-1" href="/titulo/novo">Novo título</a>
     </div>
 
     <div class="card-body">
         <table class="table table-bordered table-striped">
             <thead>
             <tr>
-                <th scope="col" class="text-center col-md-1">#</th>
-                <th scope="col">Decrição</th>
-                <th scope="col" class="text-center col-md-2">Data de vencimento</th>
-                <th scope="col" class="text-end col-md-2">Valor</th>
-                <th scope="col" class="text-center col-md-2">Status</th>
-                <th scope="col" class="text-center col-md-1">Ação</th>
+                <th scope="col" class="text-center align-middle col-md-1">#</th>
+                <th scope="col" class="text-center align-middle">Decrição</th>
+                <th scope="col" class="text-center align-middle col-md-2">Data de vencimento</th>
+                <th scope="col" class="text-center align-middle col-md-2">Valor</th>
+                <th scope="col" class="text-center align-middle col-md-2">Status</th>
+                <th scope="col" class="text-center align-middle col-md-1">Ação</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td colspan="6">Nenhum título foi encontrado</td>
-            </tr>
+                <tr th:each="titulo : ${todosTitulos}">
+                    <td class="text-center" th:text="${titulo.codigo}">1</td>
+                    <td th:text="${titulo.descricao}"></td>
+                    <td class="text-center" th:text="${{titulo.dataVencimento}}"></td>
+                    <td class="text-end" th:text="|R$ ${{titulo.valor}}|"></td>
+                    <td class="text-center">
+                        <span class="label" th:text="${titulo.status.descricao}"
+                            th:classappend="${titulo.pendente ? 'label-danger' : 'label-success'}">
+                        </span>
+                    </td>
+                    <td class="text-center">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6" th:if="${#lists.isEmpty(todosTitulos)}">Nenhum título foi encontrado</td>
+                </tr>
             </tbody>
         </table>
     </div>
