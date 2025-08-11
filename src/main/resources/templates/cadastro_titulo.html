@@ -9,22 +9,18 @@
     </div>
 
     <div class="card-body">
-        <form method="POST" action="/titulo">
+        <form method="POST" action="/titulo" th:object="${titulo}">
 
-            <div class="alert alert-success alert-dismissible fade show" role="alert"
-                 th:if="${!#strings.isEmpty(mensagem)}">
-                <i class="fa-solid fa-circle-check"></i>
-                <strong>Sucesso! </strong>
-                <span th:text="${mensagem}"/>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+            <div th:replace="~{fragments/mensagem :: mensagem}"></div>
+
+            <input type="hidden" th:field="*{codigo}"/>
 
             <div class="row mb-3">
                 <div class="col-sm-2 col-md-3  d-flex justify-content-sm-start justify-content-md-end">
                     <label class="col-form-label" for="descricao">Descrição</label>
                 </div>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="descricao" name="descricao">
+                    <input type="text" class="form-control" id="descricao" th:field="*{descricao}">
                 </div>
             </div>
 
@@ -33,7 +29,7 @@
                     <label class="col-form-label" for="dataVencimento">Data de vencimento</label>
                 </div>
                 <div class="col-auto">
-                    <input type="text" class="form-control" id="dataVencimento" name="dataVencimento">
+                    <input type="text" class="form-control" id="dataVencimento" th:field="*{dataVencimento}">
                 </div>
             </div>
 
@@ -42,7 +38,7 @@
                     <label class="col-form-label" for="valor">Valor</label>
                 </div>
                 <div class="col-auto">
-                    <input type="text" class="form-control" id="valor" name="valor">
+                    <input type="text" class="form-control" id="valor" th:field="*{valor}">
                 </div>
             </div>
 
@@ -51,7 +47,7 @@
                     <label class="col-form-label" for="status">Status</label>
                 </div>
                 <div class="col-auto">
-                    <select class="form-select" id="status" name="status">
+                    <select class="form-select" id="status" th:field="*{status}">
                         <option selected disabled value="">Selecione um item...</option>
                         <option th:each="status : ${todosStatusTitulo}" th:value="${status}"
                                 th:text="${status.descricao}"/>

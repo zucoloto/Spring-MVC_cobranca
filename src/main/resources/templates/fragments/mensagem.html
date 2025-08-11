@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!--<div class="alert alert-success alert-dismissible fade show" role="alert"
+     th:if="${!#strings.isEmpty(mensagem)}"  th:fragment="mensagem">
+    <i class="fa-solid fa-circle-check"></i>
+    <strong>Sucesso! </strong>
+    <span th:text="${mensagem}"/>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>-->
+
+<div class="alert alert-success alert-dismissible fade show" role="alert"
+     th:if="${sucesso}"  th:fragment="mensagem">
+    <i class="fa-solid fa-circle-check"></i>
+    <strong>Sucesso! </strong>
+    <span th:text="${mensagem}"/>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<div class="alert alert-danger alert-dismissible fade show" role="alert"
+     th:if="${error}"  th:fragment="mensagem">
+    <i class="fa-solid fa-circle-check"></i>
+    <strong>Erro! </strong>
+    <span th:text="${mensagem}"/>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+</html>

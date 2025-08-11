@@ -5,10 +5,7 @@ import br.com.zuco.model.Titulo;
 import br.com.zuco.repository.TituloRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Arrays;
@@ -21,6 +18,8 @@ public class TituloController {
     @Autowired
     private TituloRepository tituloRepository;
 
+    private static final String CADASTRO_VIEW = "cadastro_titulo";
+
     @GetMapping
     public ModelAndView listar() {
         List<Titulo> listar = tituloRepository.findAll();
@@ -30,15 +29,25 @@ public class TituloController {
     }
 
     @RequestMapping("/novo")
-    public String novo() {
-        return "/cadastro_titulo";
+    public ModelAndView novo() {
+        ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
+        mv.addObject(new Titulo());
+        return mv;
+    }
+
+    @RequestMapping("{codigo}")
+    public ModelAndView edicao(@PathVariable("codigo") Titulo titulo) {
+        ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
+        mv.addObject(titulo);
+        return mv;
     }
 
     @RequestMapping(method = RequestMethod.POST)
     public ModelAndView salvar(Titulo titulo) {
         tituloRepository.save(titulo);
-        ModelAndView mv = new ModelAndView("/cadastro_titulo");
-        mv.addObject("mensagem", "Título salvo!");
+        ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
+        mv.addObject("mensagem", "Título salvo!!!");
+        mv.addObject("sucesso", true);
         return mv;
     }
 
