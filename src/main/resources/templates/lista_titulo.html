@@ -34,11 +34,13 @@
                         </span>
                     </td>
                     <td class="text-center">
-                        <a class="btn btn-sm btn-primary" th:href="@{/titulo/{codigo}(codigo=${titulo.codigo})}">
+                        <a class="btn btn-sm btn-primary" th:href="@{/titulo/{codigo}(codigo=${titulo.codigo})}"
+                            rel="tooltip" data-bs-placement="top" data-bs-title="Editar">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </a>
 
                         <a class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#confirmacaoExclusaoModal"
+                           rel="tooltip" data-bs-placement="top" data-bs-title="Excluir"
                            th:attr="data-codigo=${titulo.codigo}">
                             <i class="fa-solid fa-xmark"></i>
                         </a>

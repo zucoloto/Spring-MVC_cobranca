@@ -4,7 +4,9 @@ import br.com.zuco.model.StatusTitulo;
 import br.com.zuco.model.Titulo;
 import br.com.zuco.repository.TituloRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -44,12 +46,16 @@ public class TituloController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView salvar(Titulo titulo) {
-        tituloRepository.save(titulo);
-        ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
-        mv.addObject("mensagem", "Título salvo.");
-        mv.addObject("sucesso", true);
-        return mv;
+    public String salvar(Titulo titulo, Errors errors, RedirectAttributes attributes) {
+        try {
+            tituloRepository.save(titulo);
+            attributes.addFlashAttribute("mensagem", "Título salvo");
+            attributes.addFlashAttribute("sucesso", true);
+            return "redirect:/titulo/novo";
+        } catch (DataIntegrityViolationException e) {
+            errors.rejectValue("dataVencimento", null, "Formato de data inválido");
+            return CADASTRO_VIEW;
+        }
     }
 
     @DeleteMapping("/delete/{codigo}")

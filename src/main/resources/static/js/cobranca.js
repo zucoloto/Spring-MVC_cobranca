@@ -11,3 +11,15 @@ $('#confirmacaoExclusaoModal').on('show.bs.modal', function(event) {
 
     form.attr('action', action + codigoTitulo);
 });
+
+$(function() {
+	$('[rel="tooltip"]').tooltip();
+});
+
+$(document).ready(function () {
+      window.setTimeout(function() {
+          $(".alert").fadeTo(1000, 0).slideUp(1000, function(){
+                 $(this).remove();
+          });
+      }, 2000);
+ });
