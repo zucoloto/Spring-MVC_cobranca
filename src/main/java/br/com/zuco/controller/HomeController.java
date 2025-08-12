@@ -1,4 +1,4 @@
-package br.com.zuco.controllers;
+package br.com.zuco.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

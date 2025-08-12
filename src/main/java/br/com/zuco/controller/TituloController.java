@@ -1,8 +1,8 @@
-package br.com.zuco.controllers;
+package br.com.zuco.controller;
 
 import br.com.zuco.model.StatusTitulo;
 import br.com.zuco.model.Titulo;
-import br.com.zuco.repository.TituloRepository;
+import br.com.zuco.service.TituloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
@@ -19,13 +19,13 @@ import java.util.List;
 public class TituloController {
 
     @Autowired
-    private TituloRepository tituloRepository;
+    private TituloService tituloService;
 
     private static final String CADASTRO_VIEW = "cadastro_titulo";
 
     @GetMapping
     public ModelAndView listar() {
-        List<Titulo> listar = tituloRepository.findAll();
+        List<Titulo> listar = tituloService.listarTodos();
         ModelAndView mv = new ModelAndView("/lista_titulo");
         mv.addObject("todosTitulos", listar);
         return mv;
@@ -48,7 +48,7 @@ public class TituloController {
     @RequestMapping(method = RequestMethod.POST)
     public String salvar(Titulo titulo, Errors errors, RedirectAttributes attributes) {
         try {
-            tituloRepository.save(titulo);
+            tituloService.salvar(titulo);
             attributes.addFlashAttribute("mensagem", "Título salvo");
             attributes.addFlashAttribute("sucesso", true);
             return "redirect:/titulo/novo";
@@ -59,11 +59,8 @@ public class TituloController {
     }
 
     @DeleteMapping("/delete/{codigo}")
-
-
-
     public String excluir(@PathVariable("codigo") Long codigo, RedirectAttributes attributes) {
-        tituloRepository.deleteById(codigo);
+        tituloService.deletar(codigo);
         attributes.addFlashAttribute("mensagem", "Título excluído.");
         attributes.addFlashAttribute("sucesso", true);
         return "redirect:/titulo";
