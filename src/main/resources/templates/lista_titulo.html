@@ -8,6 +8,8 @@
         <a class="btn btn-link text-decoration-none mt-1" href="/titulo/novo">Novo título</a>
     </div>
 
+    <div th:replace="~{fragments/mensagem :: mensagem}"></div>
+
     <div class="card-body">
         <table class="table table-bordered table-striped">
             <thead>
@@ -35,6 +37,11 @@
                         <a class="btn btn-sm btn-primary" th:href="@{/titulo/{codigo}(codigo=${titulo.codigo})}">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </a>
+
+                        <a class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#confirmacaoExclusaoModal"
+                           th:attr="data-codigo=${titulo.codigo}">
+                            <i class="fa-solid fa-xmark"></i>
+                        </a>
                     </td>
                 </tr>
                 <tr>
@@ -43,6 +50,8 @@
             </tbody>
         </table>
     </div>
+
+    <div th:replace="~{fragments/modal_confimar_exclusao :: modal}"></div>
 </div>
 
 </html>
