@@ -3,7 +3,7 @@ $('#confirmacaoExclusaoModal').on('show.bs.modal', function(event) {
 	var codigoTitulo = button.data('codigo');
 	var modal = $(this);
     var form = modal.find('form');
-    var action = form.attr('action');
+    var action = form.attr('data-url_base');
 
     if (!action.endsWith('/')) {
 		action += '/';
