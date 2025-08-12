@@ -1,0 +1,34 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- Modal -->
+<div class="modal fade"
+     id="confirmacaoExclusaoModal"
+     tabindex="-1"
+     data-bs-backdrop="static" data-bs-keyboard="false"
+     th:fragment="modal">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <form action="/titulo/delete" method="POST">
+
+            <input type="hidden" name="_method" value="DELETE"/>
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmação</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <span>Tem certeza que deseja apagar o registro?</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Excluir</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+</html>

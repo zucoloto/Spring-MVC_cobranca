@@ -7,9 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Arrays;
 import java.util.List;
+
+import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
 
 @Controller
 @RequestMapping("/titulo")
@@ -36,7 +39,7 @@ public class TituloController {
     }
 
     @RequestMapping("{codigo}")
-    public ModelAndView edicao(@PathVariable("codigo") Titulo titulo) {
+    public ModelAndView editar(@PathVariable("codigo") Titulo titulo) {
         ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
         mv.addObject(titulo);
         return mv;
@@ -46,9 +49,17 @@ public class TituloController {
     public ModelAndView salvar(Titulo titulo) {
         tituloRepository.save(titulo);
         ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
-        mv.addObject("mensagem", "Título salvo!!!");
+        mv.addObject("mensagem", "Título salvo.");
         mv.addObject("sucesso", true);
         return mv;
+    }
+
+    @DeleteMapping("/delete/{codigo}")
+    public String excluir(@PathVariable("codigo") Long codigo, RedirectAttributes attributes) {
+        tituloRepository.deleteById(codigo);
+        attributes.addFlashAttribute("mensagem", "Título excluído.");
+        attributes.addFlashAttribute("sucesso", true);
+        return "redirect:/titulo";
     }
 
     @ModelAttribute("todosStatusTitulo")
