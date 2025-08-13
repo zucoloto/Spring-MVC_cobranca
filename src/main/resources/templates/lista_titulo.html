@@ -11,6 +11,23 @@
     <div th:replace="~{fragments/mensagem :: mensagem}"></div>
 
     <div class="card-body">
+
+        <form method="GET" action="/titulo" th:object="${filtro}">
+            <div class="row mb-3">
+                <div class="col-sm-4">
+                    <div class="input-group">
+                        <input type="text" class="form-control" th:field="*{descricao}"
+                               autofocus placeholder="Pesquisar">
+                        <span class="input-group-text">
+                            <button type="submit" class="btn">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </form>
+
         <table class="table table-bordered table-striped">
             <thead>
             <tr>

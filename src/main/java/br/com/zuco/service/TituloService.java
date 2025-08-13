@@ -3,6 +3,7 @@ package br.com.zuco.service;
 import br.com.zuco.model.StatusTitulo;
 import br.com.zuco.model.Titulo;
 import br.com.zuco.repository.TituloRepository;
+import br.com.zuco.repository.filter.TituloFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -39,5 +40,10 @@ public class TituloService {
         titulo.setStatus(StatusTitulo.RECEBIDO);
         tituloRepository.save(titulo);
         return StatusTitulo.RECEBIDO.getDescricao();
+    }
+
+    public List<Titulo> filtrar(TituloFilter filtro) {
+        String descricao = filtro.getDescricao() == null ? "" : filtro.getDescricao();
+        return tituloRepository.findByDescricaoContaining(descricao);
     }
 }

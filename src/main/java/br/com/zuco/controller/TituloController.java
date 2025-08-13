@@ -2,6 +2,7 @@ package br.com.zuco.controller;
 
 import br.com.zuco.model.StatusTitulo;
 import br.com.zuco.model.Titulo;
+import br.com.zuco.repository.filter.TituloFilter;
 import br.com.zuco.service.TituloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -23,9 +24,17 @@ public class TituloController {
 
     private static final String CADASTRO_VIEW = "cadastro_titulo";
 
-    @GetMapping
+    /*@GetMapping
     public ModelAndView listar() {
         List<Titulo> listar = tituloService.listarTodos();
+        ModelAndView mv = new ModelAndView("/lista_titulo");
+        mv.addObject("todosTitulos", listar);
+        return mv;
+    }*/
+
+    @RequestMapping
+    public ModelAndView pesquisar(@ModelAttribute("filtro") TituloFilter filtro) {
+        List<Titulo> listar = tituloService.filtrar(filtro);
         ModelAndView mv = new ModelAndView("/lista_titulo");
         mv.addObject("todosTitulos", listar);
         return mv;
